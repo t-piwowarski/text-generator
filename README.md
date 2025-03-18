@@ -77,16 +77,64 @@ text-generaotr\
 
   To train the model, use the script 'train.py'. You can choose which model should be trained, **LSTM** or **Transformer**.
 
-- **LSTM Training:**
+- **LSTM training:**
   
    ```bash
    python training/train.py --model lstm
    ```
    
-- **Transformer Training:**
+- **Transformer training:**
 
   ```bash
    python training/train.py --model transformer
    ```
 
   *Once training is complete, the model will be saved in saved_models/.*
+
+### Text generation
+
+   Once the model has been trained, it is possible to generate new text.
+
+- **For LSTM:**
+
+  ```bash
+   python generation/generate_text.py --model lstm --prompt "W łaźniach publicznych bywał rzadko:" --num_chars 400
+   ```
+
+- **For Transformer:**
+
+   ```bash
+   python generation/generate_text.py --model transformer --prompt "W łaźniach publicznych bywał rzadko:" --num_chars 400
+   ```
+
+### Model evaluation
+
+   During training, the model is automatically tested on the validation and test sets. The 'train.py' script will output **Test Loss**, **Accuracy**, and **Top-5 Accuracy**.
+
+---
+
+## ❗ Debugging
+
+   If any errors occur:
+
+1. Check if you have activated the Anaconda environment:
+
+- On Windows:
+     
+   ```bash
+   venv\Scripts\activate
+   ```
+   
+- On Linux/macOS:
+     
+   ```bash
+   source venv/bin/activate
+   ```
+
+2. Check if you have **PyTorch** with **CUDA**:
+
+      ```bash
+   python -c "import torch; print(torch.cuda.is_available())"
+   ```
+      
+> **Note:** If it returns 'False', there may be a **problem with your CUDA installation**.
