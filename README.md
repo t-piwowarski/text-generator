@@ -6,9 +6,60 @@ Repozytorium zawiera implementację modeli LSTM i Transformer do generowania tek
 
 ## 🏗️ Model architecture
 
+### LSTM-based Model (**LSTMTextGenerationModel**)
+
+- A recurrent neural network (RNN) consisting of three LSTM layers:
+  - **Embedding layer**: 64-dimensional representation of input characters
+  - **LSTM layers**: three stacked layers with 256 hidden units each, using **dropout = 0.1**
+  - **Fully connected output layer**: converts hidden state to character probabilities
+- Optimized using **Adam optimizer**
+- **CrossEntropyLoss** as the loss function
+- **Early stopping** after 3 epochs without improvement
+
+### Transformer-based Model (**TransformerTextGenerationModel**)
+
+- Transformer decoder architecture:
+  - **Embedding layer**: 128-dimensional character representation
+  - **Positional encoding**: adds sequential dependencies to embeddings
+  - **Decoder layers**: 2 layers with 8 attention heads each, hidden size 1024
+  - **Dropout = 0.1**
+  - **Fully connected output layer**: character-level prediction
+- Optimized using **Adam optimizer**
+- **CrossEntropyLoss** as the loss function
+- **Early stopping** after 3 epochs without improvement
+
 ---
 
 ## 📊 Model results
+
+### Results on test data:
+#### LSTM model:
+- **Loss**: 1.5911
+- **Accuracy**: 50.58%
+- **Top-5 Accuracy**: 82.92%
+
+#### Transformer model:
+- **Loss**: 1.9254
+- **Accuracy**: 40.96%
+- **Top-5 Accuracy**: 77.46%
+
+### Example generated text:
+
+#### LSTM-generated text:
+```
+Prompt: "litwo ojczyzno moja"
+Generated: "litwo ojczyzno moja fale, francuza, choć ą pan sędzie siebie wyprawy..."
+```
+
+#### Transformer-generated text:
+```
+Prompt: "litwo ojczyzno moja"
+Generated: "litwo ojczyzno moja m u  rś ewcrko ćd  ua ył  c  końce równy, gdybyś zamkał sypankę..."
+```
+
+Full generated text samples can be found in:
+- **[LSTM samples](results/generated_samples/lstm_samples.txt)**
+- **[Transformer samples](results/generated_samples/transformer_samples.txt)**
 
 ---
 
