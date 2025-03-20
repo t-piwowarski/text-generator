@@ -1,6 +1,6 @@
 # Text Generator
 
-Repozytorium zawiera implementację modeli LSTM i Transformer do generowania tekstu na podstawie danych z książki Pan Tadeusz. Modele uczą się sekwencyjnych zależności w tekście i są przystosowane do generowania nowych fragmentów na podstawie podanego promptu.
+The repository contains an implementation of LSTM and Transformer models for generating text based on data from the book Pan Tadeusz. The models learn sequential dependencies in the text and are adapted to generate new fragments based on a given prompt.
 
 ---
 
@@ -83,6 +83,12 @@ text-generaotr\
 │── saved_models\
 │  │── best_lstm.pth\
 │  │── best_transformer.pth\
+│
+│── results\
+│   │── generated_samples\
+│   │   │── lstm_samples.txt\
+│   │   │ ── transformer_samples.txt\
+│   │── evaluation_metrics.json\
 │ \
 │── README.md\
 │── .gitignore\
