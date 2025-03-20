@@ -83,7 +83,7 @@ text-generaotr\
 │── saved_models\
 │  │── best_lstm.pth\
 │  │── best_transformer.pth\
-│
+│ \
 │── results\
 │   │── generated_samples\
 │   │   │── lstm_samples.txt\
