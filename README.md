@@ -65,7 +65,7 @@ Full generated text samples can be found in:
 
 ## 📂 Repository structure
 
-text-generaotr\
+text-generator\
 │── models\
 │  │── lstm_model.py\
 │  │── transformer_model.py\
